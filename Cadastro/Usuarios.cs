@@ -81,7 +81,7 @@ namespace Cadastro
                     string senhaCripto = CriptografarSenha(Senha);
                     string sqlInsert = "INSERT into usuarios (nome, email, senha) VALUES (@nome, @email, @senha)";
 
-                    MySqlCommand comando = new MySqlCommand(sqlInsert);
+                    MySqlCommand comando = new MySqlCommand(sqlInsert, conexaoBanco);
 
                     comando.Parameters.AddWithValue("@nome", Nome);
                     comando.Parameters.AddWithValue("@email", Email);

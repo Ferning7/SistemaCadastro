@@ -34,3 +34,4 @@ C:\Users\Aluno_Manha\source\repos\Cadastro\Cadastro\obj\Debug\net8.0-windows\Cad
 C:\Users\Aluno_Manha\source\repos\Cadastro\Cadastro\obj\Debug\net8.0-windows\Cadastro.Login.resources
 C:\Users\Aluno_Manha\source\repos\Cadastro\Cadastro\obj\Debug\net8.0-windows\Cadastro.Sistema.resources
 C:\Users\Aluno_Manha\source\repos\Cadastro\Cadastro\obj\Debug\net8.0-windows\Cadastro.csproj.Up2Date
+C:\Users\Aluno_Manha\source\repos\Cadastro\Cadastro\obj\Debug\net8.0-windows\Cadastro.sourcelink.json
