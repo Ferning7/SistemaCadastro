@@ -38,6 +38,7 @@
             btnCadastrar = new Button();
             linkLabel1 = new LinkLabel();
             groupBox1 = new GroupBox();
+            checkMostrarSenha = new CheckBox();
             lblTitulo = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -63,7 +64,7 @@
             // lblNovaSenha
             // 
             lblNovaSenha.AutoSize = true;
-            lblNovaSenha.Location = new Point(82, 142);
+            lblNovaSenha.Location = new Point(82, 138);
             lblNovaSenha.Name = "lblNovaSenha";
             lblNovaSenha.Size = new Size(67, 15);
             lblNovaSenha.TabIndex = 2;
@@ -87,15 +88,16 @@
             // 
             // txtCriarSenha
             // 
-            txtCriarSenha.Location = new Point(82, 160);
+            txtCriarSenha.Location = new Point(82, 156);
             txtCriarSenha.MaxLength = 8;
             txtCriarSenha.Name = "txtCriarSenha";
+            txtCriarSenha.PasswordChar = '•';
             txtCriarSenha.Size = new Size(246, 23);
             txtCriarSenha.TabIndex = 3;
             // 
             // btnCadastrar
             // 
-            btnCadastrar.Location = new Point(147, 203);
+            btnCadastrar.Location = new Point(147, 210);
             btnCadastrar.Name = "btnCadastrar";
             btnCadastrar.Size = new Size(110, 34);
             btnCadastrar.TabIndex = 4;
@@ -106,7 +108,7 @@
             // linkLabel1
             // 
             linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(148, 240);
+            linkLabel1.Location = new Point(148, 247);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(109, 15);
             linkLabel1.TabIndex = 5;
@@ -116,6 +118,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(checkMostrarSenha);
             groupBox1.Controls.Add(linkLabel1);
             groupBox1.Controls.Add(btnCadastrar);
             groupBox1.Controls.Add(txtCriarSenha);
@@ -129,6 +132,17 @@
             groupBox1.Size = new Size(407, 292);
             groupBox1.TabIndex = 8;
             groupBox1.TabStop = false;
+            // 
+            // checkMostrarSenha
+            // 
+            checkMostrarSenha.AutoSize = true;
+            checkMostrarSenha.Location = new Point(85, 185);
+            checkMostrarSenha.Name = "checkMostrarSenha";
+            checkMostrarSenha.Size = new Size(102, 19);
+            checkMostrarSenha.TabIndex = 6;
+            checkMostrarSenha.Text = "Mostrar Senha";
+            checkMostrarSenha.UseVisualStyleBackColor = true;
+            checkMostrarSenha.CheckedChanged += checkMostrarSenha_CheckedChanged;
             // 
             // lblTitulo
             // 
@@ -155,6 +169,7 @@
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro";
+            FormClosing += Form1_FormClosing;
             Load += Form1_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -174,5 +189,6 @@
         private LinkLabel linkLabel1;
         private GroupBox groupBox1;
         private Label lblTitulo;
+        private CheckBox checkMostrarSenha;
     }
 }

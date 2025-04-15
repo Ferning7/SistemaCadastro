@@ -14,21 +14,28 @@ namespace Cadastro
     {
 
         private string nomeUsuario;
+        private Form telaLogin;
 
-        public Sistema(string nome)
+        public Sistema(string nome, Form tela)
         {
             InitializeComponent();
             nomeUsuario = nome;
+            telaLogin = tela;
         }
 
         private void Sistema_Load(object sender, EventArgs e)
         {
-            NomeUser.Text = "Bem vindo," + nomeUsuario + "!";
+            NomeUser.Text = $"Bem vindo, {nomeUsuario}!";
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void Sistema_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

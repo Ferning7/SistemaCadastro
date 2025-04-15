@@ -2,10 +2,13 @@ namespace Cadastro
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        private Form telaCadastro;
+        public Form1(Form tela)
         {
             InitializeComponent();
+            telaCadastro = tela;
         }
+
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -18,7 +21,7 @@ namespace Cadastro
         {
             try
             {
-                if (!txtNome.Text.Equals("") && !txtEmail.Text.Equals("") && !txtCriarSenha.Text.Equals("")) 
+                if (!txtNome.Text.Equals("") && !txtEmail.Text.Equals("") && !txtCriarSenha.Text.Equals(""))
                 {
                     Usuarios usuario = new Usuarios();
                     usuario.Nome = txtNome.Text;
@@ -30,16 +33,18 @@ namespace Cadastro
                         if (usuario.CadastrarUsuario())
                         {
                             MessageBox.Show("Cadastro realizado");
-                        } else
+                        }
+                        else
                         {
                             MessageBox.Show("Falha ao cadastrar usuário");
                         }
                     }
-                } else
+                }
+                else
                 {
                     MessageBox.Show("Preencha os campos corretamente!");
                 }
-            } 
+            }
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao cadastrar usuário: " + ex.Message);
@@ -49,6 +54,17 @@ namespace Cadastro
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void checkMostrarSenha_CheckedChanged(object sender, EventArgs e)
+        {
+
+            txtCriarSenha.PasswordChar = checkMostrarSenha.Checked ? '\0' : '•';
         }
     }
 }

@@ -76,6 +76,7 @@
             Name = "Sistema";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sistema";
+            FormClosing += Sistema_FormClosing;
             Load += Sistema_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

@@ -182,9 +182,9 @@ namespace Cadastro
                 using (MySqlConnection conexaoBanco = new ConexaoBD().Conectar())
                 {
                     string senhaCripto = CriptografarSenha(Senha);
-                    string sqlAlter = "ALTER TABLE usuarios SET senha = @senha WHERE nome = @nome and email @email";
+                    string sqlUpdate = "UPDATE usuarios SET senha = @senha WHERE nome = @nome and email @email";
 
-                    MySqlCommand comando = new MySqlCommand(sqlAlter, conexaoBanco);
+                    MySqlCommand comando = new MySqlCommand(sqlUpdate, conexaoBanco);
 
                     
                     comando.Parameters.AddWithValue("@senha", senhaCripto);

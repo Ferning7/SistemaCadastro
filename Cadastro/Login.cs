@@ -25,7 +25,7 @@ namespace Cadastro
 
         private void linkCadastrar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form1 telaCadastro = new Form1();
+            Form1 telaCadastro = new Form1(this);
             telaCadastro.Show();
             this.Hide();
         }
@@ -61,7 +61,8 @@ namespace Cadastro
                             
                             string nomeLogado = usuarios.BuscarNome();
 
-                            Sistema sistema = new Sistema(nomeLogado);
+                            Sistema sistema = new Sistema(nomeLogado, this);
+
                             sistema.Show();
                             this.Hide();
                         }
