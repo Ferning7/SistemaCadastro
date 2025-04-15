@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -85,6 +86,107 @@ namespace Cadastro
 
                     comando.Parameters.AddWithValue("@nome", Nome);
                     comando.Parameters.AddWithValue("@email", Email);
+                    comando.Parameters.AddWithValue("@senha", senhaCripto);
+
+                    int resultado = comando.ExecuteNonQuery();
+                    if (resultado > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao cadastrar usuário ->" + ex.Message);
+                return false;
+            }
+
+        }
+        public bool verificarLogin()
+        {
+            try
+            {
+                using (MySqlConnection conexao = new ConexaoBD().Conectar())
+                {
+                    string senhaCripto = CriptografarSenha(Senha);
+
+                    string consultaUsuarios = "SELECT COUNT(*) FROM usuarios WHERE email = @email and senha = @senha";
+                    MySqlCommand comando = new MySqlCommand(consultaUsuarios, conexao);
+
+                    comando.Parameters.AddWithValue("@email", Email);
+                    comando.Parameters.AddWithValue("@senha", senhaCripto);
+
+                    int resultado = Convert.ToInt32(comando.ExecuteScalar());
+
+                    if (resultado > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao verificar login no banco -> " + ex.Message);
+                return false;
+            }
+        }
+
+        public string BuscarNome()
+        {
+            try
+            {
+                using (MySqlConnection conexao = new ConexaoBD().Conectar())
+                {
+                    string senhaCripto = CriptografarSenha(Senha);
+
+                    string buscarNome = "SELECT nome FROM usuarios WHERE email = @email and senha = @senha";
+                    MySqlCommand comando = new MySqlCommand(buscarNome, conexao);
+
+                    comando.Parameters.AddWithValue("@email", Email);
+                    comando.Parameters.AddWithValue("@senha", senhaCripto);
+
+                    object resultado = comando.ExecuteScalar();
+
+                    if (resultado != null)
+                    {
+                        return resultado.ToString();
+                    }
+                    else
+                    {
+                        return "";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Não foi possível buscar o nome do usuário!" + ex.Message);
+                return "";
+            }
+        }
+
+        public bool MudarSenha()
+        {
+            try
+            {
+                using (MySqlConnection conexaoBanco = new ConexaoBD().Conectar())
+                {
+                    string senhaCripto = CriptografarSenha(Senha);
+                    string sqlAlter = "ALTER TABLE usuarios SET senha = @senha WHERE nome = @nome and email @email";
+
+                    MySqlCommand comando = new MySqlCommand(sqlAlter, conexaoBanco);
+
+                    
                     comando.Parameters.AddWithValue("@senha", senhaCripto);
 
                     int resultado = comando.ExecuteNonQuery();

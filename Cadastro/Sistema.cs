@@ -10,11 +10,25 @@ using System.Windows.Forms;
 
 namespace Cadastro
 {
-    public partial class Sistema: Form
+    public partial class Sistema : Form
     {
-        public Sistema()
+
+        private string nomeUsuario;
+
+        public Sistema(string nome)
         {
             InitializeComponent();
+            nomeUsuario = nome;
+        }
+
+        private void Sistema_Load(object sender, EventArgs e)
+        {
+            NomeUser.Text = "Bem vindo," + nomeUsuario + "!";
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

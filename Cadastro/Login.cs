@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,7 +32,9 @@ namespace Cadastro
 
         private void linkResetSenha_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            MudarSenha mudarSenha = new MudarSenha();
+            mudarSenha.Show();
+            this.Hide();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -42,9 +45,45 @@ namespace Cadastro
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Sistema telaSistema = new Sistema();
-            telaSistema.Show();
-            this.Hide();
+            try
+            {
+                if (!txtEmail.Text.Equals("") && !txtSenha.Equals(""))
+                {
+                    Usuarios usuarios = new Usuarios();
+                    usuarios.Email = txtEmail.Text;
+                    usuarios.Senha = txtSenha.Text;
+
+                    if (Usuarios.verificarEmail(txtEmail.Text))
+                    {
+                        if (usuarios.verificarLogin())
+                        {
+                            MessageBox.Show("Login realizado com sucesso!");
+                            
+                            string nomeLogado = usuarios.BuscarNome();
+
+                            Sistema sistema = new Sistema(nomeLogado);
+                            sistema.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Usuário ou senha inválidos!");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Forneça um email válido");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Preencha os campos corretamente!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Não foi possível acessar o sistema" + ex.Message);
+            }
         }
     }
 }
