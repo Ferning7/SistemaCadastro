@@ -25,7 +25,7 @@ namespace Cadastro
 
         private void linkCadastrar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form1 telaCadastro = new Form1(this);
+            Cadastro telaCadastro = new Cadastro(this);
             telaCadastro.Show();
             this.Hide();
         }
@@ -53,7 +53,7 @@ namespace Cadastro
                     usuarios.Email = txtEmail.Text;
                     usuarios.Senha = txtSenha.Text;
 
-                    if (Usuarios.verificarEmail(txtEmail.Text))
+                    if (Usuarios.ValidarEmail(txtEmail.Text))
                     {
                         if (usuarios.verificarLogin())
                         {

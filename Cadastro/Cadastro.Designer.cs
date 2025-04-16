@@ -1,6 +1,6 @@
 ﻿namespace Cadastro
 {
-    partial class Form1
+    partial class Cadastro
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cadastro));
             lblNome = new Label();
             lblEmail = new Label();
             lblNovaSenha = new Label();
@@ -46,60 +46,67 @@
             // lblNome
             // 
             lblNome.AutoSize = true;
-            lblNome.Location = new Point(82, 38);
+            lblNome.Location = new Point(117, 63);
+            lblNome.Margin = new Padding(4, 0, 4, 0);
             lblNome.Name = "lblNome";
-            lblNome.Size = new Size(40, 15);
+            lblNome.Size = new Size(61, 25);
             lblNome.TabIndex = 0;
             lblNome.Text = "Nome";
             // 
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(82, 85);
+            lblEmail.Location = new Point(117, 142);
+            lblEmail.Margin = new Padding(4, 0, 4, 0);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(36, 15);
+            lblEmail.Size = new Size(54, 25);
             lblEmail.TabIndex = 1;
             lblEmail.Text = "Email";
             // 
             // lblNovaSenha
             // 
             lblNovaSenha.AutoSize = true;
-            lblNovaSenha.Location = new Point(82, 138);
+            lblNovaSenha.Location = new Point(117, 230);
+            lblNovaSenha.Margin = new Padding(4, 0, 4, 0);
             lblNovaSenha.Name = "lblNovaSenha";
-            lblNovaSenha.Size = new Size(67, 15);
+            lblNovaSenha.Size = new Size(101, 25);
             lblNovaSenha.TabIndex = 2;
             lblNovaSenha.Text = "Criar Senha";
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(82, 56);
+            txtNome.Location = new Point(117, 93);
+            txtNome.Margin = new Padding(4, 5, 4, 5);
             txtNome.MaxLength = 100;
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(246, 23);
+            txtNome.Size = new Size(350, 31);
             txtNome.TabIndex = 1;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(82, 103);
+            txtEmail.Location = new Point(117, 172);
+            txtEmail.Margin = new Padding(4, 5, 4, 5);
             txtEmail.MaxLength = 100;
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(246, 23);
+            txtEmail.Size = new Size(350, 31);
             txtEmail.TabIndex = 2;
             // 
             // txtCriarSenha
             // 
-            txtCriarSenha.Location = new Point(82, 156);
+            txtCriarSenha.Location = new Point(117, 260);
+            txtCriarSenha.Margin = new Padding(4, 5, 4, 5);
             txtCriarSenha.MaxLength = 8;
             txtCriarSenha.Name = "txtCriarSenha";
             txtCriarSenha.PasswordChar = '•';
-            txtCriarSenha.Size = new Size(246, 23);
+            txtCriarSenha.Size = new Size(350, 31);
             txtCriarSenha.TabIndex = 3;
             // 
             // btnCadastrar
             // 
-            btnCadastrar.Location = new Point(147, 210);
+            btnCadastrar.Location = new Point(210, 350);
+            btnCadastrar.Margin = new Padding(4, 5, 4, 5);
             btnCadastrar.Name = "btnCadastrar";
-            btnCadastrar.Size = new Size(110, 34);
+            btnCadastrar.Size = new Size(157, 57);
             btnCadastrar.TabIndex = 4;
             btnCadastrar.Text = "Cadastrar";
             btnCadastrar.UseVisualStyleBackColor = true;
@@ -108,9 +115,10 @@
             // linkLabel1
             // 
             linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(148, 247);
+            linkLabel1.Location = new Point(206, 412);
+            linkLabel1.Margin = new Padding(4, 0, 4, 0);
             linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(109, 15);
+            linkLabel1.Size = new Size(168, 25);
             linkLabel1.TabIndex = 5;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Ja possui Cadastro?";
@@ -118,6 +126,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.BackColor = Color.Transparent;
             groupBox1.Controls.Add(checkMostrarSenha);
             groupBox1.Controls.Add(linkLabel1);
             groupBox1.Controls.Add(btnCadastrar);
@@ -127,18 +136,21 @@
             groupBox1.Controls.Add(lblNovaSenha);
             groupBox1.Controls.Add(lblEmail);
             groupBox1.Controls.Add(lblNome);
-            groupBox1.Location = new Point(56, 53);
+            groupBox1.Location = new Point(80, 88);
+            groupBox1.Margin = new Padding(4, 5, 4, 5);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(407, 292);
+            groupBox1.Padding = new Padding(4, 5, 4, 5);
+            groupBox1.Size = new Size(581, 487);
             groupBox1.TabIndex = 8;
             groupBox1.TabStop = false;
             // 
             // checkMostrarSenha
             // 
             checkMostrarSenha.AutoSize = true;
-            checkMostrarSenha.Location = new Point(85, 185);
+            checkMostrarSenha.Location = new Point(121, 308);
+            checkMostrarSenha.Margin = new Padding(4, 5, 4, 5);
             checkMostrarSenha.Name = "checkMostrarSenha";
-            checkMostrarSenha.Size = new Size(102, 19);
+            checkMostrarSenha.Size = new Size(153, 29);
             checkMostrarSenha.TabIndex = 6;
             checkMostrarSenha.Text = "Mostrar Senha";
             checkMostrarSenha.UseVisualStyleBackColor = true;
@@ -147,26 +159,29 @@
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
+            lblTitulo.BackColor = Color.Transparent;
             lblTitulo.Font = new Font("Arial Black", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitulo.Location = new Point(194, 22);
+            lblTitulo.Location = new Point(277, 37);
+            lblTitulo.Margin = new Padding(4, 0, 4, 0);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(136, 28);
+            lblTitulo.Size = new Size(200, 42);
             lblTitulo.TabIndex = 6;
             lblTitulo.Text = "CADASTRO";
             // 
-            // Form1
+            // Cadastro
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(518, 381);
-            Controls.Add(lblTitulo);
+            ClientSize = new Size(740, 635);
             Controls.Add(groupBox1);
+            Controls.Add(lblTitulo);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(4, 5, 4, 5);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "Form1";
+            Name = "Cadastro";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro";
             FormClosing += Form1_FormClosing;

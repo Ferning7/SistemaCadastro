@@ -41,11 +41,40 @@ namespace Cadastro
         }
 
         // Métodos
-        public static bool verificarEmail(string email)
+        public static bool ValidarEmail(string email)
         {
             string emailValido = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
             Regex regex = new Regex(emailValido);
             return regex.IsMatch(email);
+        }
+
+        public bool verificarEmailExistente()
+        {
+            try
+            {
+                using (MySqlConnection conexaoBanco = new ConexaoBD().Conectar())
+                {
+                    string sqlconsultaEmail = "select COUNT(*) from usuarios where email = @email ";
+
+                    MySqlCommand comando = new MySqlCommand(sqlconsultaEmail, conexaoBanco);
+                    comando.Parameters.AddWithValue("@email", Email);
+
+                    int resultado = Convert.ToInt32(comando.ExecuteScalar());
+                    if(resultado > 0)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao verificar email {ex.Message}");
+                return false;
+            }
         }
 
         public static string CriptografarSenha(string senha)
@@ -182,12 +211,13 @@ namespace Cadastro
                 using (MySqlConnection conexaoBanco = new ConexaoBD().Conectar())
                 {
                     string senhaCripto = CriptografarSenha(Senha);
-                    string sqlUpdate = "UPDATE usuarios SET senha = @senha WHERE nome = @nome and email @email";
+                    string sqlUpdate = "UPDATE usuarios SET senha = @senha WHERE email = @email";
 
                     MySqlCommand comando = new MySqlCommand(sqlUpdate, conexaoBanco);
 
                     
                     comando.Parameters.AddWithValue("@senha", senhaCripto);
+                    comando.Parameters.AddWithValue("@email", Email);
 
                     int resultado = comando.ExecuteNonQuery();
                     if (resultado > 0)

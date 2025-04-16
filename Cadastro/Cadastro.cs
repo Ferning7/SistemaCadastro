@@ -1,9 +1,9 @@
 namespace Cadastro
 {
-    public partial class Form1 : Form
+    public partial class Cadastro : Form
     {
         private Form telaCadastro;
-        public Form1(Form tela)
+        public Cadastro(Form tela)
         {
             InitializeComponent();
             telaCadastro = tela;
@@ -28,16 +28,38 @@ namespace Cadastro
                     usuario.Email = txtEmail.Text;
                     usuario.Senha = txtCriarSenha.Text;
 
-                    if (Usuarios.verificarEmail(txtEmail.Text))
+                    if (Usuarios.ValidarEmail(txtEmail.Text))
                     {
-                        if (usuario.CadastrarUsuario())
+                        if(usuario.verificarEmailExistente())
                         {
-                            MessageBox.Show("Cadastro realizado");
+                            if (usuario.CadastrarUsuario())
+                            {
+                                MessageBox.Show("Cadastro realizado");
+                                Login telaLogin = new Login();
+                                this.Hide();
+                                telaLogin.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Falha ao cadastrar usuário");
+                                txtEmail.Clear();
+                                txtCriarSenha.Clear();
+                                txtNome.Clear();
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Falha ao cadastrar usuário");
+                            txtEmail.Clear();
+                            txtCriarSenha.Clear();
+                            txtNome.Clear();
                         }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Email inválido");
+                        txtEmail.Clear();
+                        txtCriarSenha.Clear();
+                        txtNome.Clear();
                     }
                 }
                 else

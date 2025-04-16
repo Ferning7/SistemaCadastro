@@ -38,9 +38,10 @@
             // 
             panel1.BackColor = Color.Green;
             panel1.Controls.Add(NomeUser);
-            panel1.Location = new Point(-2, 0);
+            panel1.Location = new Point(-3, 0);
+            panel1.Margin = new Padding(4, 5, 4, 5);
             panel1.Name = "panel1";
-            panel1.Size = new Size(956, 64);
+            panel1.Size = new Size(1366, 107);
             panel1.TabIndex = 0;
             // 
             // NomeUser
@@ -49,28 +50,32 @@
             NomeUser.BackColor = Color.Green;
             NomeUser.Font = new Font("Segoe UI", 15F);
             NomeUser.ForeColor = SystemColors.ButtonHighlight;
-            NomeUser.Location = new Point(181, 17);
+            NomeUser.Location = new Point(259, 28);
+            NomeUser.Margin = new Padding(4, 0, 4, 0);
             NomeUser.Name = "NomeUser";
-            NomeUser.Size = new Size(0, 28);
+            NomeUser.Size = new Size(0, 41);
             NomeUser.TabIndex = 0;
             // 
             // groupBox1
             // 
             groupBox1.BackColor = SystemColors.ButtonFace;
-            groupBox1.Location = new Point(1, 58);
+            groupBox1.Location = new Point(1, 97);
+            groupBox1.Margin = new Padding(4, 5, 4, 5);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(953, 546);
+            groupBox1.Padding = new Padding(4, 5, 4, 5);
+            groupBox1.Size = new Size(1361, 910);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Enter += groupBox1_Enter;
             // 
             // Sistema
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(954, 603);
+            ClientSize = new Size(1363, 1005);
             Controls.Add(panel1);
             Controls.Add(groupBox1);
+            Margin = new Padding(4, 5, 4, 5);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Sistema";

@@ -34,12 +34,55 @@ namespace Cadastro
 
             try
             {
-
+                if(!txtEmail.Text.Equals("") && !txtNovaSenha.Equals("") && !txtConfirmSenha.Text.Equals(""))
+                {
+                    Usuarios usuario = new Usuarios();
+                    usuario.Email = txtEmail.Text;
+                    usuario.Senha = txtNovaSenha.Text;
+                    
+                    if (Usuarios.ValidarEmail(txtEmail.Text))
+                    {
+                        if (!usuario.verificarEmailExistente())
+                        {
+                            if (txtNovaSenha.Text == txtConfirmSenha.Text)
+                            {
+                                if (usuario.MudarSenha())
+                                {
+                                    MessageBox.Show("Senha atualizada");
+                                    Login telaLogin = new Login();
+                                    this.Hide();
+                                    telaLogin.Show();
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Senhas não são iguais");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Email não existe");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Email inválido");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Preencha os campos");
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erro ao cadastrar usuário: " + ex.Message);
             }
+        }
+
+        private void MudarSenha_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
